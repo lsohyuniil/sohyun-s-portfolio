@@ -5,18 +5,13 @@ export default function About() {
   return (
     <section
       id="about"
-      className="
-        min-h-screen
-        md:h-screen
-        max-w-[1440px]
-        mx-auto
-      "
+      className="min-h-screen md:h-screen max-w-[1440px] mx-auto"
     >
-      <h2 className="px-0 py-4 text-2xl font-bold text-center sm:px-8 sm:py-20 md:w-auto md:text-left sm:text-3xl md:text-4xl text-primary">
+      <h2 className="px-0 py-4 text-2xl font-bold text-center sm:px-8 sm:py-10 md:w-auto md:text-left sm:text-3xl md:text-4xl text-primary">
         About
       </h2>
 
-      <div className="flex flex-col items-center justify-center px-4 mt-5 sm:px-10 md:px-32 md:flex-row">
+      <div className="flex flex-col items-center justify-center gap-10 px-4 mt-5 sm:px-10 md:px-32 md:flex-row">
         <div className="flex-shrink-0 mb-6 sm:flex-1 md:mb-0">
           <Profile />
         </div>

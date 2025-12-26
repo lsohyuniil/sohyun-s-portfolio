@@ -45,7 +45,7 @@ export default function Contact() {
       id="contact"
       className="relative h-screen overflow-hidden bg-black"
     >
-      <h2 className="px-0 py-4 text-2xl font-bold text-center sm:px-8 sm:py-20 md:w-auto md:text-left sm:text-3xl md:text-4xl text-primary">
+      <h2 className="max-w-[1440px] mx-auto px-0 py-4 text-2xl font-bold text-center sm:px-8 sm:py-10 md:w-auto md:text-left sm:text-3xl md:text-4xl text-primary">
         Contact
       </h2>
 
@@ -89,7 +89,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="w-full py-2 mb-2 text-sm font-bold text-white transition rounded bg-primary hover:bg-primaryHover sm:text-base md:text-lg"
+              className="w-full py-2 mb-2 text-sm font-bold text-white transition rounded-lg shadow-lg bg-gradient-to-r from-blue-600 via-indigo-500 to-pink-400 brightness-110 hover:brightness-90 bg-primary hover:bg-primaryHover sm:text-base md:text-lg"
             >
               보내기
             </button>

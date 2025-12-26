@@ -1,16 +1,18 @@
-# React + Vite
+# sohyun's portfolio 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📄 프로젝트 소개
 
-Currently, two official plugins are available:
+**📆 프로젝트 기간 : 2025.12.24 ~ 2025.12.26 (3일)**
+<br><br>
+[🔗 sohyun's portfolio 프로젝트 URL 바로가기](https://lsohyuniil.github.io/sohyun-s-portfolio/)
+<br><br>
+개인 포트폴리오 웹사이트
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ 프로젝트 기술 스택
+<p align="center">
+  <img alt="Vite" src="https://img.shields.io/badge/-Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=white"/>
+  <img alt="React" src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"/>
+  <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black"/>
+  <img alt="Tailwind CSS" src="https://img.shields.io/badge/tailwindcss-0F172A?&style=for-the-badge&logo=tailwindcss"/>
+  <img alt="EmailJS" src="https://img.shields.io/badge/EmailJS-4A154B?style=for-the-badge&logo=maildotru&logoColor=white"/>
+</p>

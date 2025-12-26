@@ -1,45 +1,66 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export default function Contact() {
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
   const [content, setContent] = useState("");
 
-  const handleSubmit = () => {
+  const form = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     if (!title || !email || !content) {
-      alert("모든 항목을 입력해주세요!");
+      alert("모든 항목을 입력해주세요.");
       return;
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      alert("유효한 이메일 주소를 입력해주세요!");
+      alert("유효한 이메일 주소를 입력해주세요.");
       return;
     }
 
-    alert("이메일이 정상적으로 보내졌습니다. 감사합니다.");
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY).then(
+      () => {
+        alert("연락주셔서 감사합니다. 빠른 시일 내에 답변 드리겠습니다.");
+        setTitle("");
+        setEmail("");
+        setContent("");
+      },
+      (error) => {
+        alert("메일 전송에 실패했습니다. 다시 시도해주세요.");
+        console.error(error);
+      }
+    );
   };
 
   return (
     <section
       id="contact"
-      className="h-screen bg-black relative overflow-hidden"
+      className="relative h-screen overflow-hidden bg-black"
     >
-      <div className="max-w-[1440px] px-0 sm:px-8 flex flex-col mx-auto z-10 relative">
-        <h2 className="sm:mt-20 md:w-auto my-4 text-center md:text-left text-2xl sm:text-3xl md:text-4xl text-primary font-bold mb-4 sm:mb-32 md:mb-32">
-          Contact
-        </h2>
+      <h2 className="px-0 py-4 text-2xl font-bold text-center sm:px-8 sm:py-20 md:w-auto md:text-left sm:text-3xl md:text-4xl text-primary">
+        Contact
+      </h2>
 
-        <div className="flex flex-col justify-center items-center w-full sm:w-full">
-          <div className="flex flex-col gap-4 w-[90%] sm:w-full max-w-md text-left md:text-left">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full my-12 sm:my-20 sm:w-full">
+        <div className="flex flex-col gap-4 w-[80%] sm:w-full max-w-md text-left md:text-left">
+          <form ref={form} onSubmit={handleSubmit}>
             <label className="font-semibold text-white">
               제목
               <input
                 type="text"
+                name="name"
                 placeholder="제목을 입력해 주세요."
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="border border-gray-300 hover:border-primaryHover focus:border-primary rounded px-4 py-2 w-full text-sm sm:text-base md:text-lg"
+                className="w-full px-4 py-2 mb-2 text-sm text-black border border-gray-300 rounded hover:border-primaryHover focus:border-primary sm:text-base md:text-lg"
               />
             </label>
 
@@ -47,10 +68,11 @@ export default function Contact() {
               이메일
               <input
                 type="email"
+                name="email"
                 placeholder="이메일을 입력해 주세요."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border border-gray-300 hover:border-primaryHover focus:border-primary rounded px-4 py-2 w-full text-sm sm:text-base md:text-lg"
+                className="w-full px-4 py-2 mb-2 text-sm text-black border border-gray-300 rounded hover:border-primaryHover focus:border-primary sm:text-base md:text-lg"
               />
             </label>
 
@@ -58,19 +80,20 @@ export default function Contact() {
               내용
               <textarea
                 placeholder="내용을 입력해 주세요."
+                name="message"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                className="border border-gray-300 hover:border-primaryHover focus:border-primary rounded px-4 py-2 w-full h-32 sm:h-40 md:h-48 resize-none text-sm sm:text-base md:text-lg"
+                className="w-full h-32 px-4 py-2 mb-2 text-sm text-black border border-gray-300 rounded resize-none hover:border-primaryHover focus:border-primary sm:h-40 md:h-48 sm:text-base md:text-lg"
               />
             </label>
 
             <button
-              onClick={handleSubmit}
-              className="bg-primary text-white font-bold py-2 rounded hover:bg-primaryHover transition text-sm sm:text-base md:text-lg"
+              type="submit"
+              className="w-full py-2 mb-2 text-sm font-bold text-white transition rounded bg-primary hover:bg-primaryHover sm:text-base md:text-lg"
             >
               보내기
             </button>
-          </div>
+          </form>
         </div>
       </div>
 

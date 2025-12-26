@@ -58,12 +58,12 @@ export default function Skills() {
 
   return (
     <div ref={ref} className="w-[200px] sm:w-[400px] h-[280px] mb-4 sm:mb-6">
-      <h3 className="text-xl text-center sm:text-2xl text-primaryHover font-bold mb-1 sm:mb-2">
+      <h3 className="mb-1 text-xl font-bold text-center sm:text-2xl text-primaryHover sm:mb-4">
         Skills
       </h3>
-      <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
+      <div className="flex flex-col gap-2 sm:flex-row sm:gap-8">
         {/* 카테고리 버튼 */}
-        <div className="flex flex-row sm:flex-col gap-4 sm:gap-2 justify-center sm:justify-start">
+        <div className="flex flex-row justify-center gap-4 sm:flex-col sm:gap-2 sm:justify-start">
           {["frontend", "backend", "etc"].map((cat) => (
             <div
               key={cat}
@@ -82,17 +82,17 @@ export default function Skills() {
         </div>
 
         {/* 기술 그래프 바 */}
-        <div className="flex flex-col gap-2 text-xs sm:text-base md:text-lg justify-center sm:justify-start w-full">
+        <div className="flex flex-col justify-center w-full gap-2 text-xs sm:text-base md:text-lg sm:justify-start">
           {skillLevel[selectedSkill].map((skill) => (
             <div key={skill.name} className="relative">
-              <div className="bg-gray-300 rounded-full h-4 sm:h-6 w-full relative overflow-hidden">
+              <div className="relative w-full h-4 overflow-hidden bg-gray-300 rounded-full sm:h-6">
                 {/* 애니메이션 바 */}
                 <div
-                  className="h-4 sm:h-6 rounded-full transition-all duration-1000 ease-in-out"
+                  className="h-4 transition-all duration-1000 ease-in-out rounded-full sm:h-6"
                   style={{
                     width: animateTrigger ? `${skill.percent}%` : "0%",
                     background:
-                      "linear-gradient(90deg, #4F8CFF, #2563EB, #3BA9FF)",
+                      "linear-gradient(90deg, #2563EB, #6366F1, #F472B6)",
                   }}
                 ></div>
 

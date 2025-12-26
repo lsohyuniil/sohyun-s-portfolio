@@ -16,9 +16,13 @@ export default function Header() {
     const section = document.getElementById(id);
     if (!section) return;
 
-    section.scrollIntoView({
+    const headerOffset = 64;
+    const elementPosition = section.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
       behavior: "smooth",
-      block: "start",
     });
   };
 
@@ -33,27 +37,27 @@ export default function Header() {
       <nav className="max-w-[1440px] mx-auto px-8 h-16 flex items-center justify-between">
         <button
           onClick={() => scrollToSection("hero")}
-          className="text-primary font-bold text-lg tracking-wide"
+          className="text-lg font-bold tracking-wide text-primary"
         >
           <h1>SOHYUN</h1>
         </button>
 
-        <ul className="flex gap-2 sm:gap-8 text-xs sm:text-base font-medium">
+        <ul className="flex gap-2 text-xs font-medium sm:gap-8 sm:text-base">
           <li
             onClick={() => scrollToSection("about")}
-            className="cursor-pointer text-primary hover:text-primaryHover transition-colors"
+            className="transition-colors cursor-pointer text-primary hover:text-primaryHover"
           >
             About
           </li>
           <li
             onClick={() => scrollToSection("projects")}
-            className="cursor-pointer text-primary hover:text-primaryHover transition-colors"
+            className="transition-colors cursor-pointer text-primary hover:text-primaryHover"
           >
             Projects
           </li>
           <li
             onClick={() => scrollToSection("contact")}
-            className="cursor-pointer text-primary hover:text-primaryHover transition-colors"
+            className="transition-colors cursor-pointer text-primary hover:text-primaryHover"
           >
             Contact
           </li>
